@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    // "node_modules/": true,
+    // ".nuxt": true,
+    // ".output": true,
+    // ".vscode": true,
+    // ".npmrc": true,
+    // ".gitignore": true,
+    // "package-lock.json": true,
+    // "README.md": true,
+    // ".prettierrc": true
+  },
+  "editor.quickSuggestions": {
+    // tailwind
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
