@@ -7,6 +7,7 @@
     // ".npmrc": true,
     // ".gitignore": true,
     // "package-lock.json": true,
+    // "pnpm-lock.yaml": true,
     // "README.md": true,
     // ".prettierrc": true
   },
