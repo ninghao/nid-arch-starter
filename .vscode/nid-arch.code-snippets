@@ -1,4 +1,12 @@
 {
+  "currentUser": {
+    "prefix": "cu",
+    "body": ["const { currentUser } = useCurrentUser();"]
+  },
+  "$AV": {
+    "prefix": "av",
+    "body": ["const { $$AV } = useNuxtApp();"]
+  },
   "Vue Component": {
     "prefix": "vc",
     "body": [
@@ -14,29 +22,15 @@
   },
   "script:setup": {
     "prefix": "ss",
-    "body": [
-      "<script setup lang=\"ts\">",
-      "  ${1}",
-      "</script>",
-      ""
-    ]
+    "body": ["<script setup lang=\"ts\">", "  ${1}", "</script>", ""]
   },
   "style:postcss": {
     "prefix": "sp",
-    "body": [
-      "<style lang=\"postcss\" scoped>",
-      "  ${1}",
-      "</style>",
-      ""
-    ]
+    "body": ["<style lang=\"postcss\" scoped>", "  ${1}", "</style>", ""]
   },
   "useAnimation": {
     "prefix": "ua",
-    "body": [
-      "const { \\$gsap, root } = useAnimation(() => {",
-      "${1}",
-      "});"
-    ]
+    "body": ["const { \\$gsap, root } = useAnimation(() => {", "${1}", "});"]
   },
   "template": {
     "prefix": "tp",
@@ -64,7 +58,25 @@
   },
   "Component props": {
     "prefix": "dp",
-    "body": ["type Props = {${1}};", "", "defineProps<Props>();"]
+    "body": [
+      "/**",
+      " * 属性",
+      " */",
+      "type Props = { $1 };",
+      "",
+      "const {$2} = defineProps<Props>();"
+    ]
+  },
+  "Component props with defaults": {
+    "prefix": "dpd",
+    "body": [
+      "/**",
+      " * 属性",
+      " */",
+      "type Props = { $1 };",
+      "",
+      "const {$2} = withDefaults(defineProps<Props>(), {$3});"
+    ]
   },
   "Single type store": {
     "prefix": "sts",
@@ -96,5 +108,109 @@
       "};",
       ""
     ]
+  },
+  "Server api handler": {
+    "prefix": "sa",
+    "body": ["export default defineEventHandler(async (event) => {", "${1}", "});"]
+  },
+  "Pinia Store": {
+    "prefix": "ps",
+    "body": [
+      "/**",
+      " * ${1}Store",
+      " */",
+      "export const use${1}Store = defineStore('${2}', () => {",
+      "  /**",
+      "   * State 🌴",
+      "   */",
+      "  ",
+      "  ${3}",
+      "  ",
+      "  /**",
+      "   * Getters 🌵",
+      "   */",
+      "",
+      "  /**",
+      "   * Actions 🚀",
+      "   */",
+      "",
+      "  /**",
+      "   * 返回值",
+      "   */",
+      "  return {};",
+      "});"
+    ]
+  },
+  "Zod Schema": {
+    "prefix": "zs",
+    "body": [
+      "/**",
+      " * ${1}：Schema",
+      " */",
+      "export const ${2}Schema = z.object({",
+      "  ${3}",
+      "});",
+      "",
+      "/**",
+      " * ${1}：Type",
+      " */",
+      "export type ${2} = z.infer<typeof ${2}Schema>;"
+    ]
+  },
+  "Zod Store Schema": {
+    "prefix": "zss",
+    "body": [
+      "import { z } from 'zod';",
+      "",
+      "/**",
+      " * 创建",
+      " */",
+      "export const create${1}DtoSchema = z.object({",
+      "  ",
+      "});",
+      "",
+      "/**",
+      " * 更新",
+      " */",
+      "export const update${1}DtoSchema = z.optional(create${1}DtoSchema)",
+      "",
+      "/**",
+      " * 实体",
+      " */",
+      "export const ${2}Schema = z.object({})",
+      "",
+      "/**",
+      " * 列表",
+      " */",
+      "export const ${3}Schema = z.array(${2}Schema)",
+      "",
+      "/**",
+      " * 类型",
+      " */",
+      "export type ${1} = z.infer<typeof ${2}Schema>;",
+      "export type ${4} = z.infer<typeof ${3}Schema>;",
+      "export type Create${1}Dto = z.infer<typeof create${1}DtoSchema>;",
+      "export type Update${1}Dto = z.infer<typeof update${1}DtoSchema>;",
+      "",
+      "/**",
+      " * 空白",
+      " */",
+      "export const _${2}: ${1} = {",
+      "",
+      "}",
+      ""
+    ]
+  },
+  "Nuxt runtime config": {
+    "prefix": "urc",
+    "body": ["const config${1} = useRuntimeConfig();"]
+  },
+  "Nuxt useHead title": {
+    "prefix": "uht",
+    "body": ["/**", " * 页头", " */", "useHead({", "  title: '${1}',", "});"]
+  },
+  "Nuxt definePageMeta": {
+    "prefix": "dpm",
+    "body": ["/**", " * 页面元数据", " */", "definePageMeta({", "  ${1}", "});"]
   }
 }
