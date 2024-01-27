@@ -20,5 +20,6 @@
     ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "explorer.compactFolders": false
 }
