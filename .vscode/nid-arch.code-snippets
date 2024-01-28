@@ -212,5 +212,9 @@
   "Nuxt definePageMeta": {
     "prefix": "dpm",
     "body": ["/**", " * 页面元数据", " */", "definePageMeta({", "  ${1}", "});"]
+  },
+  "computed": {
+    "prefix": "com",
+    "body": ["const $1 = computed(() => {", "  $2", "})"]
   }
 }
