@@ -216,5 +216,9 @@
   "computed": {
     "prefix": "com",
     "body": ["const $1 = computed(() => {", "  $2", "})"]
+  },
+  "import zod": {
+    "prefix": "iz",
+    "body": ["import { z } from 'zod';"]
   }
 }
